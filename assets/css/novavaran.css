@@ -92,7 +92,7 @@ a {
   background: var(--fg-surface);
 }
 .fg-section-title {
-  font-size: clamp(30px, 4vw, 35px);
+  font-size: clamp(30px, 4vw, 30px);
   line-height: 1.35;
   margin: 0 0 22px;
 }
@@ -362,7 +362,7 @@ a {
 }
 .fg-hero h1 {
   color: #fff;
-  font-size: clamp(42px, 5.3vw, 43px);
+  font-size: clamp(42px, 5.3vw, 42px);
   line-height: 1.28;
   margin-bottom: 25px;
 }
@@ -523,7 +523,7 @@ a {
 }
 .fg-trust-item span {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--fg-muted);
   margin-top: 4px;
 }
@@ -655,7 +655,7 @@ a {
 /* Process */
 .fg-process {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   margin-top: 44px;
 }
@@ -673,11 +673,11 @@ a {
   margin-bottom: 30px;
 }
 .fg-process-item h4 {
-  font-size: 17px;
+  font-size: 20px;
   margin-bottom: 9px;
 }
 .fg-process-item p {
-  font-size: 13px;
+  font-size: 17px;
   line-height: 1.8;
   color: #778396;
   margin: 0;
