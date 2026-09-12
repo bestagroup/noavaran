@@ -12,6 +12,90 @@
     <link rel="stylesheet" href="assets/css/font-awesome-pro.min.css" />
     <link rel="stylesheet" href="assets/css/animate.css" />
     <link rel="stylesheet" href="assets/css/novavaran.css" />
+
+    <style>
+        .fg-analytics-dashboard{
+            --an-navy:#111d2f;
+            --an-navy-2:#19324d;
+            --an-accent:#19a99a;
+            --an-accent-soft:#e9f7f5;
+            --an-orange:#ef7a32;
+            --an-bg:#f5f7f9;
+            --an-border:#e5e9ee;
+            --an-muted:#6e7a88;
+        }
+        .fg-analytics-dashboard{padding:72px 0;background:var(--an-bg)}
+        .fg-analytics-head{
+            display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px
+        }
+        .fg-analytics-title h2{margin:0 0 8px;font-size:34px;color:var(--an-navy);font-weight:800}
+        .fg-analytics-title p{margin:0;color:var(--an-muted)}
+        .fg-analytics-period{
+            background:#fff;border:1px solid var(--an-border);border-radius:14px;padding:12px 16px;
+            color:var(--an-navy);font-size:13px;box-shadow:0 8px 24px rgba(17,29,47,.05)
+        }
+        .fg-analytics-period strong{display:block;font-size:14px;margin-bottom:2px}
+        .fg-analytics-demo-note{
+            margin-top:10px;color:#8b95a2;font-size:12px
+        }
+        .fg-kpi-grid{
+            display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:22px
+        }
+        .fg-kpi-card{
+            background:#fff;border:1px solid var(--an-border);border-radius:18px;padding:20px;
+            box-shadow:0 10px 30px rgba(17,29,47,.05);position:relative;overflow:hidden
+        }
+        .fg-kpi-card:before{
+            content:"";position:absolute;right:0;top:0;width:4px;height:100%;background:var(--an-accent)
+        }
+        .fg-kpi-label{font-size:13px;color:var(--an-muted);margin-bottom:10px}
+        .fg-kpi-value{font-size:31px;line-height:1.2;color:var(--an-navy);font-weight:900}
+        .fg-kpi-unit{font-size:12px;color:var(--an-muted);margin-right:5px;font-weight:600}
+        .fg-kpi-change{display:flex;align-items:center;gap:5px;margin-top:10px;font-size:12px}
+        .fg-kpi-change.up{color:#13957f}.fg-kpi-change.down{color:#d65c55}
+        .fg-analytics-grid{
+            display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.85fr);gap:18px;margin-bottom:18px
+        }
+        .fg-analytics-grid.reverse{grid-template-columns:minmax(320px,.85fr) minmax(0,1.45fr)}
+        .fg-analytics-card{
+            background:#fff;border:1px solid var(--an-border);border-radius:18px;padding:22px;
+            box-shadow:0 10px 30px rgba(17,29,47,.05);min-width:0
+        }
+        .fg-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+        .fg-card-head h3{margin:0;color:var(--an-navy);font-size:18px;font-weight:800}
+        .fg-card-head span{font-size:11px;color:var(--an-muted)}
+        .fg-chart-wrap{position:relative;height:300px}
+        .fg-chart-wrap.sm{height:260px}
+        .fg-rank-table{width:100%;border-collapse:collapse}
+        .fg-rank-table th,.fg-rank-table td{
+            padding:11px 6px;border-bottom:1px solid #edf0f3;font-size:13px;text-align:right
+        }
+        .fg-rank-table th{color:#8a95a2;font-size:11px;font-weight:700}
+        .fg-rank-table tr:last-child td{border-bottom:0}
+        .fg-rank-no{
+            display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;
+            background:var(--an-navy);color:#fff;font-size:11px;font-weight:800
+        }
+        .fg-rank-table tr:first-child .fg-rank-no{background:var(--an-orange)}
+        .fg-value-bold{font-weight:800;color:var(--an-navy)}
+        .fg-analytics-footer-note{
+            background:#fff;border:1px dashed #cad2db;border-radius:14px;padding:14px 17px;
+            color:#768291;font-size:12px;line-height:1.9;margin-top:18px
+        }
+        @media(max-width:991.98px){
+            .fg-kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+            .fg-analytics-grid,.fg-analytics-grid.reverse{grid-template-columns:1fr}
+            .fg-analytics-head{align-items:flex-start;flex-direction:column}
+        }
+        @media(max-width:575.98px){
+            .fg-analytics-dashboard{padding:52px 0}
+            .fg-kpi-grid{grid-template-columns:1fr}
+            .fg-analytics-card{padding:17px}
+            .fg-chart-wrap{height:270px}.fg-chart-wrap.sm{height:245px}
+            .fg-analytics-title h2{font-size:28px}
+        }
+    </style>
+
     <noscript><style>.wow{opacity:1!important;visibility:visible!important}</style></noscript>
 </head>
 <body>
@@ -48,7 +132,6 @@
     </div>
 </div>
 <section class="fg-page-hero">
-    <img class="fg-hero-bg" src="assets/images/bg/h9-contact-bg.png" alt="راهکارهای تأمین مالی" />
     <div class="fg-container">
         <div class="fg-breadcrumb"><a href="index.html">خانه</a><i class="fa-regular fa-angle-left"></i><span>گزارش‌های تحلیلی</span></div>
         <h1>گزارش‌های تحلیلی</h1>
@@ -70,12 +153,115 @@
             </div>
         </div>
     </section>
-    <section class="fg-section fg-section-soft">
+    <section class="fg-analytics-dashboard">
         <div class="fg-container">
-            <div class="fg-card text-center wow fadeInUp" style="max-width:850px;margin:0 auto">
-                <div class="fg-icon mx-auto"><i class="fa-light fa-file-chart-column"></i></div>
-                <h2 class="fg-section-title" style="font-size:32px">گزارش‌های تحلیلی به‌زودی منتشر می‌شوند.</h2>
-                <p class="fg-lead">گزارش‌های تخصصی حوزه تأمین مالی، ابزارهای مالی و سرمایه‌گذاری در حال آماده‌سازی هستند.</p>
+            <div class="fg-analytics-head wow fadeInUp">
+                <div class="fg-analytics-title">
+                    <div class="fg-eyebrow">داشبورد هفتگی</div>
+                    <h2>شاخص‌های منتخب تأمین مالی</h2>
+                    <p>نمایی خلاصه از عملکرد، ترکیب منابع و پراکندگی فعالیت‌های تأمین مالی.</p>
+                    <div class="fg-analytics-demo-note">مقادیر این نسخه نمونه نمایشی هستند و برای اتصال به داده واقعی قابل جایگزینی‌اند.</div>
+                </div>
+                <div class="fg-analytics-period">
+                    <strong>گزارش نمونه هفتگی</strong>
+                    هفته دوم شهریور ۱۴۰۵
+                </div>
+            </div>
+
+            <div class="fg-kpi-grid">
+                <div class="fg-kpi-card wow fadeInUp">
+                    <div class="fg-kpi-label">تعداد طرح‌های منتشرشده</div>
+                    <div class="fg-kpi-value">۲۸</div>
+                    <div class="fg-kpi-change up"><i class="fa-regular fa-arrow-up"></i> ۶.۲٪ نسبت به هفته قبل</div>
+                </div>
+                <div class="fg-kpi-card wow fadeInUp" data-wow-delay=".05s">
+                    <div class="fg-kpi-label">تعداد طرح‌های تأمین‌شده</div>
+                    <div class="fg-kpi-value">۲۷</div>
+                    <div class="fg-kpi-change up"><i class="fa-regular fa-arrow-up"></i> ۴.۱٪ نسبت به هفته قبل</div>
+                </div>
+                <div class="fg-kpi-card wow fadeInUp" data-wow-delay=".1s">
+                    <div class="fg-kpi-label">کل مبلغ تأمین‌شده</div>
+                    <div><span class="fg-kpi-value">۷۸۶.۵</span><span class="fg-kpi-unit">میلیارد تومان</span></div>
+                    <div class="fg-kpi-change up"><i class="fa-regular fa-arrow-up"></i> ۷.۵٪ نسبت به هفته قبل</div>
+                </div>
+                <div class="fg-kpi-card wow fadeInUp" data-wow-delay=".15s">
+                    <div class="fg-kpi-label">میانگین مبلغ هر طرح</div>
+                    <div><span class="fg-kpi-value">۲۹.۱</span><span class="fg-kpi-unit">میلیارد تومان</span></div>
+                    <div class="fg-kpi-change down"><i class="fa-regular fa-arrow-down"></i> ۲.۳٪ نسبت به هفته قبل</div>
+                </div>
+            </div>
+
+            <div class="fg-analytics-grid">
+                <div class="fg-analytics-card wow fadeInUp">
+                    <div class="fg-card-head">
+                        <h3>سکوهای برتر بر اساس مبلغ</h3>
+                        <span>میلیارد تومان</span>
+                    </div>
+                    <div class="fg-chart-wrap"><canvas id="platformAmountChart"></canvas></div>
+                </div>
+
+                <div class="fg-analytics-card wow fadeInUp" data-wow-delay=".08s">
+                    <div class="fg-card-head">
+                        <h3>سکوهای برتر بر اساس تعداد طرح</h3>
+                        <span>رتبه‌بندی نمونه</span>
+                    </div>
+                    <table class="fg-rank-table">
+                        <thead><tr><th>رتبه</th><th>سکو</th><th>تعداد طرح</th></tr></thead>
+                        <tbody>
+                        <tr><td><span class="fg-rank-no">۱</span></td><td>کارن کراد</td><td class="fg-value-bold">۳</td></tr>
+                        <tr><td><span class="fg-rank-no">۲</span></td><td>دونگی</td><td class="fg-value-bold">۳</td></tr>
+                        <tr><td><span class="fg-rank-no">۳</span></td><td>زیما</td><td class="fg-value-bold">۲</td></tr>
+                        <tr><td><span class="fg-rank-no">۴</span></td><td>آی‌بی‌کراد</td><td class="fg-value-bold">۲</td></tr>
+                        <tr><td><span class="fg-rank-no">۵</span></td><td>هم‌آفرین</td><td class="fg-value-bold">۲</td></tr>
+                        <tr><td><span class="fg-rank-no">۶</span></td><td>پارس فاند</td><td class="fg-value-bold">۲</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="fg-analytics-grid reverse">
+                <div class="fg-analytics-card wow fadeInUp">
+                    <div class="fg-card-head">
+                        <h3>ترکیب انواع تضامین</h3>
+                        <span>سهم از کل</span>
+                    </div>
+                    <div class="fg-chart-wrap sm"><canvas id="guaranteeChart"></canvas></div>
+                </div>
+
+                <div class="fg-analytics-card wow fadeInUp" data-wow-delay=".08s">
+                    <div class="fg-card-head">
+                        <h3>استان‌های برتر</h3>
+                        <span>مبلغ تأمین‌شده – میلیارد تومان</span>
+                    </div>
+                    <table class="fg-rank-table">
+                        <thead><tr><th>رتبه</th><th>استان</th><th>مبلغ</th></tr></thead>
+                        <tbody>
+                        <tr><td><span class="fg-rank-no">۱</span></td><td>تهران</td><td class="fg-value-bold">۴۱۰</td></tr>
+                        <tr><td><span class="fg-rank-no">۲</span></td><td>خراسان رضوی</td><td class="fg-value-bold">۹۰</td></tr>
+                        <tr><td><span class="fg-rank-no">۳</span></td><td>اصفهان</td><td class="fg-value-bold">۷۰</td></tr>
+                        <tr><td><span class="fg-rank-no">۴</span></td><td>فارس</td><td class="fg-value-bold">۵۵</td></tr>
+                        <tr><td><span class="fg-rank-no">۵</span></td><td>البرز</td><td class="fg-value-bold">۴۸</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="fg-analytics-grid">
+                <div class="fg-analytics-card wow fadeInUp">
+                    <div class="fg-card-head">
+                        <h3>صنایع برتر</h3>
+                        <span>مبلغ تأمین‌شده – میلیارد تومان</span>
+                    </div>
+                    <div class="fg-chart-wrap"><canvas id="industryChart"></canvas></div>
+                </div>
+
+                <div class="fg-analytics-card wow fadeInUp" data-wow-delay=".08s">
+                    <div class="fg-card-head">
+                        <h3>روند هفتگی تأمین مالی</h3>
+                        <span>۶ هفته اخیر</span>
+                    </div>
+                    <div class="fg-chart-wrap"><canvas id="weeklyTrendChart"></canvas></div>
+                </div>
             </div>
         </div>
     </section>
@@ -127,5 +313,144 @@
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/wow.min.js"></script>
 <script src="assets/js/wow-safe-init.js"></script>
+
+<script src="assets/js/chart.min.js"></script>
+<script>
+    (function () {
+        if (typeof Chart === 'undefined') return;
+
+        Chart.defaults.font.family = 'IRANSans, Tahoma, Arial, sans-serif';
+        Chart.defaults.color = '#6e7a88';
+        Chart.defaults.borderColor = 'rgba(17,29,47,.08)';
+
+        const fmt = new Intl.NumberFormat('fa-IR');
+
+        const baseTooltip = {
+            backgroundColor: '#111d2f',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            padding: 12,
+            cornerRadius: 10,
+            displayColors: true,
+            rtl: true,
+            textDirection: 'rtl'
+        };
+
+        const gridColor = 'rgba(17,29,47,.07)';
+        const navy = '#19324d';
+        const teal = '#19a99a';
+        const orange = '#ef7a32';
+        const slate = '#8190a0';
+
+        new Chart(document.getElementById('platformAmountChart'), {
+            type: 'bar',
+            data: {
+                labels: ['کارن کراد','هم‌آفرین','نیک کراد','آی‌بی‌کراد','دونگی','پارس فاند'],
+                datasets: [{
+                    label: 'مبلغ تأمین‌شده',
+                    data: [168,115,94,71,63,54],
+                    backgroundColor: [navy,teal,navy,teal,navy,orange],
+                    borderRadius: 7,
+                    maxBarThickness: 42
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: baseTooltip },
+                scales: {
+                    x: { grid: { display:false }, ticks:{font:{size:11}} },
+                    y: {
+                        beginAtZero:true,
+                        grid:{color:gridColor},
+                        ticks:{callback:(v)=>fmt.format(v)}
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('guaranteeChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['ضمانت‌نامه بانکی','صندوق ضمانت','چک و سفته','سایر تضامین'],
+                datasets: [{
+                    data: [37,25,22,16],
+                    backgroundColor: [orange,navy,teal,slate],
+                    borderWidth: 0,
+                    hoverOffset: 5
+                }]
+            },
+            options: {
+                responsive:true,
+                maintainAspectRatio:false,
+                cutout:'68%',
+                plugins:{
+                    legend:{
+                        position:'bottom',
+                        rtl:true,
+                        labels:{usePointStyle:true,pointStyle:'circle',padding:16,font:{size:11}}
+                    },
+                    tooltip:{
+                        ...baseTooltip,
+                        callbacks:{label:(ctx)=>' '+ctx.label+': '+fmt.format(ctx.raw)+'٪'}
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('industryChart'), {
+            type: 'bar',
+            data: {
+                labels: ['محصولات صنعتی','خودرو و قطعات','معدن و تجهیزات','صنایع غذایی','کشاورزی','شیمیایی'],
+                datasets: [{
+                    label:'مبلغ',
+                    data:[177,125,85,70,60,56],
+                    backgroundColor:[orange,navy,teal,navy,teal,navy],
+                    borderRadius:7,
+                    maxBarThickness:32
+                }]
+            },
+            options:{
+                indexAxis:'y',
+                responsive:true,
+                maintainAspectRatio:false,
+                plugins:{legend:{display:false},tooltip:baseTooltip},
+                scales:{
+                    x:{beginAtZero:true,grid:{color:gridColor},ticks:{callback:(v)=>fmt.format(v)}},
+                    y:{grid:{display:false},ticks:{font:{size:11}}}
+                }
+            }
+        });
+
+        new Chart(document.getElementById('weeklyTrendChart'), {
+            type:'line',
+            data:{
+                labels:['هفته ۱','هفته ۲','هفته ۳','هفته ۴','هفته ۵','هفته ۶'],
+                datasets:[{
+                    label:'مبلغ تأمین‌شده',
+                    data:[520,610,585,700,735,786.5],
+                    borderColor:teal,
+                    backgroundColor:'rgba(25,169,154,.12)',
+                    pointBackgroundColor:navy,
+                    pointBorderColor:'#fff',
+                    pointBorderWidth:2,
+                    pointRadius:4,
+                    tension:.35,
+                    fill:true
+                }]
+            },
+            options:{
+                responsive:true,
+                maintainAspectRatio:false,
+                plugins:{legend:{display:false},tooltip:baseTooltip},
+                scales:{
+                    x:{grid:{display:false}},
+                    y:{beginAtZero:false,grid:{color:gridColor},ticks:{callback:(v)=>fmt.format(v)}}
+                }
+            }
+        });
+    })();
+</script>
+
 </body>
 </html>
